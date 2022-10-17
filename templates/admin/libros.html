@@ -1,0 +1,88 @@
+{% include 'admin/cabecera.html' %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Datos del Libro
+                </div>
+                <div class="card-body">
+                    <form action="/admin/libros/guardar" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                          <label for="txtnombre" class="form-label">Nombre :</label>
+                          <input type="text" class="form-control" name="txtnombre" id="txtnombre" aria-describedby="helpId" placeholder="Escriba el nombre del libro"> 
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtimagen" class="form-label">Imagen :</label>
+                            <input type="file" class="form-control" name="txtimagen" id="txtimagen" aria-describedby="helpId" placeholder="Seleccione la imagen"> 
+                        </div> 
+
+                        <div class="mb-3">
+                            <label for="txturl" class="form-label">Url de descarga:</label>
+                            <input type="text" class="form-control" name="txturl" id="txturl" aria-describedby="helpId" placeholder="Escriba la Url de descarga"> 
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtfecha" class="form-label">Fecha :</label>
+                            <input type="date" class="form-control" name="txtfecha" id="txtfecha" aria-describedby="helpId" placeholder="Escriba la fecha"> 
+                          </div>
+
+                        <div class="mb-3">
+                            <label for="txtcontenido" class="form-label">Contenido :</label>
+                            <input type="text" class="form-control" name="txtcontenido" id="txtcontenido" aria-describedby="helpId" placeholder="Escriba tu contenido"> 
+                          </div>
+
+                        <button type="submit" class="btn btn-primary">Agregar</button>  
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for libro in libros %}
+                        <tr class="">
+                            <td >{{libro[0]}}</td>
+                            <td>{{libro[1]}}</td>
+                            <td>
+                                <img width="60" src="/img/{{libro[2]}}" class="img-fluid rounded-top" alt="">
+                                </td>
+                            <td>
+
+                                <a name="" id="" class="btn btn-success" href="{{libro[3]}}" role="button">link de descarga </a>
+                                
+                            </td>
+                            <td>
+                                <form action="/admin/libros/borrar" method="post">
+                                    <input  type="hidden" name="txtid" id="txtid" value="{{ libro[0] }}">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+{% include 'admin/pie.html' %}

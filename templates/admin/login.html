@@ -1,0 +1,47 @@
+{% include 'sitio/cabecera.html' %}
+        <div class="row">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4">
+                <br>
+
+                {% if mensaje %}
+                
+                <div class="alert alert-danger" role="alert">
+                  <strong>{{ mensaje }}</strong>
+                </div>
+                {% endif %}
+                
+                
+                <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                <center>
+                  <img style="margin-top: 9%;margin-bottom:9%;;width: 60%;" class="card-img-top" src="https://cdn.pixabay.com/photo/2017/01/31/23/42/animal-2028258__340.png" alt="Title">
+                </center>
+                    <div class="card-header text-uppercase" >
+                       <strong><center>Inicio de sesión</center></strong> 
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <div class="mb-3">
+                              <label for="txtUsuario" class="form-label">Usuario:</label>
+                              <input type="text" class="form-control" name="txtUsuario" id="txtUsuario" aria-describedby="helpId" placeholder="Escriba su Usuario">
+                            </div>
+                            <div class="mb-3">
+                                <label for="txtPassword" class="form-label">Contraseña:</label>
+                                <input type="password" class="form-control" name="txtPassword" id="txtPassword" aria-describedby="helpId" placeholder="Escriba su Password">
+                              </div>
+                              <button type="submit" class="btn btn-success">Entrar</button> 
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+            
+        </div>
+        {% include 'sitio/pie.html' %}

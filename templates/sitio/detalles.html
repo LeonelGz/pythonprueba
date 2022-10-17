@@ -1,0 +1,14 @@
+{% include 'sitio/cabecera.html' %}
+
+        {% for libro in libros%} 
+                {{libro[1] }} <br>
+                {{libro[2] }} <br>
+                {{libro[3] }} <br>
+                 {{libro[4] | safe }} 
+               
+        
+        {% endfor %}
+
+
+
+{% include 'sitio/pie.html' %}

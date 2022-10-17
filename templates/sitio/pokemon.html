@@ -1,0 +1,25 @@
+{% include 'sitio/cabecera.html' %}
+ 
+    <div class="row">
+        {% for pokemo in pokemon%}
+        <div class="col-md-3">
+            <center>
+            <div class="card"> 
+                <div class="card-body">
+                    <h4 class="card-title">{{pokemo['name']}}</h4>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemo['url'][34:-1]}}.png">
+                   
+                </div>
+                <p class="card-text">
+                    <a name="" id="" class="btn btn-success" href="/pokemon/{{pokemo['url'][34:-1]}}" role="button">Descargar</a>
+                </p>
+                 
+            </div></center>
+        </div>
+        {% endfor %}
+        
+    </div>
+ 
+
+
+{% include 'sitio/pie.html' %}

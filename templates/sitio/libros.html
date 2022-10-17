@@ -1,0 +1,34 @@
+{% include 'sitio/cabecera.html' %}
+ 
+    <div class="row">
+        {% for libro in libros%}
+        <div class="col-md-3">
+            <div class="card">
+                {%if libro[2][-3:] == 'mp4'%}
+                <video src="/img/{{libro[2]}}" autoplay controls>
+                    Tu navegador no admite el elemento <code>video</code>.
+                  </video>
+                {% else %}
+                <img class="card-img-top" src="/img/{{libro[2]}}" alt="Title">
+                {%endif%}
+                <div class="card-body">
+                    <h4 class="card-title">{{libro[1]}}</h4>
+                    <p class="card-text">
+                        {{libro[4] | safe }} 
+                        
+                    </p>
+                    <p class="card-text">
+                        <a name="" id="" class="btn btn-success" href="/libros/{{libro[0]}}" role="button">Descargar</a>
+                    </p>
+                </div>
+                 
+                 
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+ 
+
+
+{% include 'sitio/pie.html' %}
